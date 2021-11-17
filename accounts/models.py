@@ -63,8 +63,8 @@ class Account(AbstractBaseUser):
     This is class that contains the new custom fields in the custom user model
     """
     email = models.EmailField(verbose_name='email address', max_length=60, unique=True)
-    first_name = models.CharField(verbose_name='first name', max_length=40, unique=True)
-    last_name = models.CharField(verbose_name='last name', max_length=40, unique=True)
+    first_name = models.CharField(verbose_name='first name', max_length=40)
+    last_name = models.CharField(verbose_name='last name', max_length=40)
     username = models.CharField(verbose_name="username", max_length=30, unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

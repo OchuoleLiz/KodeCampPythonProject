@@ -1,9 +1,14 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+
+from .forms import AccountUserCreationForm, AccountUserChangeForm
 from .models import Account
 
 
 class AccountAdmin(UserAdmin):
+    add_form = AccountUserCreationForm
+    form = AccountUserChangeForm
+    model = Account
     list_display = ('email', 'username', 'first_name', 'last_name', 'is_staff',  'is_superuser')
     list_filter = ('is_superuser',)
 

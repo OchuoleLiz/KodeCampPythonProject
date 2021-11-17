@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} Accounts Homepage{% endblock title %}
+
+{% block content%}
+{% if user.is_authenticated %}
+    <h2>Hello {{ user.username}}!</h2>    
+    <h6>Welcome!</h6>
+    <form action="" class="form-inline ml-auto">
+        <a class="btn btn-primary" href="{% url 'logout' %}">Log Out</a>
+        <a class="btn btn-primary" href="{% url 'account_update' request.user.pk %}">Update Account</a>
+        <a class="btn btn-primary" href="{% url 'account_delete' request.user.pk %}">Delete Account</a>
+        <a class="btn btn-primary" href="#">Change Password</a>        
+    </form>
+    <hr>
+    <h3>User Profile</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col border">
+                <small>Email:</small>
+                {{ request.user.email }}
+            </div>
+            <div class="col border">
+                <small>Username:</small>
+                {{ request.user.username }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border">
+                <small>First name:</small>
+                {{ request.user.first_name }}
+            </div>
+            <div class="col border">
+                <small>Last name:</small>
+                {{ request.user.last_name }}
+            </div>
+        </div>
+    </div>   
+
+{% else %}
+    <h1>Welcome!</h1>
+    <h2>You need to log in to gain access to our page.</h2>
+{% endif %}
+
+{% endblock content%}

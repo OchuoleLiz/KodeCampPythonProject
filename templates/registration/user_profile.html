@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} Account Profile {% endblock title %}
+
+{% block content%}
+
+{% block card %}
+    <div class="container">
+        <div class="row">
+            <div class="col border">
+                <small>{% "Email" %}:</small>
+                {{ request.user.email }}
+            </div>
+            <div class="col border">
+                <small>{% "Username" %}:</small>
+                {{ request.user.username }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border">
+                <small>{% "First name" %}:</small>
+                {{ request.user.first_name }}
+            </div>
+            <div class="col border">
+                <small>{% "Last name" %}:</small>
+                {{ request.user.last_name }}
+            </div>
+        </div>
+    </div>
+
+<button class="btn btn-primary" type="submit"><a href="{% url 'account_update' request.user.pk %}">Update Account</a></button>
+
+{% endblock content%}
