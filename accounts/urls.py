@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import PasswordReset, SignUpView, AccountUpdateView, AccountDeleteView, AccountDetailView, LoginRedirect, PasswordChange
 from django.contrib.auth import views as auth_views
 
@@ -13,5 +13,8 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('password_change/', PasswordChange.as_view(), name='password_change'),  
     path('password_change/done', PasswordChange.as_view(), name='password_change_done'), 
-    path('password_change/', PasswordReset.as_view(), name='password_reset'),           
+    path('password_change/', PasswordReset.as_view(), name='password_reset'),
+    # API authentication urls
+    path('api/auth/', include('rest_auth.urls')),
+    path('api/auth/register/', include('rest_auth.registration.urls')),           
 ]          
