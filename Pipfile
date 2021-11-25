@@ -6,6 +6,13 @@ name = "pypi"
 [packages]
 django = "*"
 djangorestframework = "*"
+django-crispy-forms = "*"
+django-rest-auth = "*"
+django-allauth = "*"
+oauth = "*"
+environs = {extras = ["django"], version = "*"}
+psycopg2-binary = "*"
+whitenoise = "*"
 
 [dev-packages]
 
